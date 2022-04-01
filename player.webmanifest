@@ -1,6 +1,7 @@
 {
   "name": "Player Progressive Web App",
   "short_name": "Player",
+  "start_url": "/",
   "description": "Progressive Web App that controls Audio Pro speakers.",
   "icons": [
     {
