@@ -1,8 +1,8 @@
 {
-  "name": "Player Progressive Web App",
+  "name": "Audio Pro Player",
   "short_name": "Player",
   "start_url": "/",
-  "description": "Progressive Web App that controls Audio Pro speakers.",
+  "description": "Audio Pro speakers radio player.",
   "icons": [
     {
       "src": "icons/icon-32.png",
@@ -15,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "display": "fullscreen",
-  "theme_color": "#B12A34",
-  "background_color": "#B12A34"
+  "display": "standalone",
+  "theme_color": "#666666",
+  "background_color": "#666666"
 }

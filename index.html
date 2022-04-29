@@ -4,156 +4,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Audio Pro Player</title>
-        <meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval' 'unsafe-dynamic'; script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob: ; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline';frame-ancestors * data: blob: 'unsafe-inline';">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src *  data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval' 'unsafe-dynamic'; script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob: ; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline';frame-ancestors * data: blob: 'unsafe-inline';">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="manifest" href="player.webmanifest">
-	<style>
-		@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
-
-		body {
-			background: #2a2a2a;
-			font-family: 'Montserrat', sans-serif;
-		}
-
-		h1 {
-			text-align: center;
-			font-size: 34px;
-			color: #fff;
-		}
-
-		p {
-			color: #999;
-			text-align: center;
-			font-size: 15px;
-		}
-
-		p a {
-			color: #2ecc71;
-			text-decoration: none;
-			padding: 1px 2px 0px 2px;
-			border-bottom: 2px solid rgba(0, 0, 0, .0);
-			transition: all 0.1s ease;
-		}
-
-		i.clickable {
-			cursor: pointer;
-		}
-
-		p a:hover {
-			padding: 1px 2px 1px 2px;
-			border-bottom: 2px solid #555;
-		}
-
-		#volumeControl {
-			width: 250px;
-			height: 15px;
-			position: relative;
-			margin: 0 auto;
-			padding-bottom: 30px;
-		}
-
-		#volumeControl i {
-			position: absolute;
-			margin-top: 3px;
-		}
-
-		#volumeControl i.fa-volume-down {
-			margin-left: -5px;
-		}
-
-		#volumeControl i.fa-volume-up {
-			margin-right: -10px;
-			right: 0;
-		}
-
-		#volumeBar {
-			position: absolute;
-			left: 24px;
-			margin: 0 auto;
-			height: 10px;
-			width: 200px;
-			background: #555;
-			border-radius: 15px;
-		}
-
-		#volumeBar .ui-slider-range-min {
-			height: 10px;
-			width: 300px;
-			position: absolute;
-			background: #2ecc71;
-			border: none;
-			border-radius: 10px;
-			outline: none;
-		}
-
-		#volumeBar .ui-slider-handle {
-			width: 20px;
-			height: 20px;
-			border-radius: 20px;
-			background: #fff;
-			position: absolute;
-			margin-left: -5px;
-			margin-top: -5px;
-			cursor: pointer;
-			outline: none;
-		}
-
-		.controls {
-			display: grid;
-			justify-content: center;
-			grid-template-columns: auto auto auto auto;
-			grid-gap: 20px;
-			padding-bottom: 40px;
-		}
-
-		.sources {
-			display: grid;
-			justify-content: center;
-			grid-template-columns: auto auto;
-			grid-gap: 20px;
-			padding-bottom: 30px;
-		}
-
-		i {
-			color: #666;
-		}
-
-		.button {
-			padding: 4px 8px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 2px 2px;
-			transition-duration: 0.4s;
-			cursor: pointer;
-		}
-
-		.buttonGreen {
-			background-color: #666;
-			color: white;
-			border: 2px solid #2ecc71;
-		}
-
-		.buttonGreen:hover {
-			background-color: #2ecc71;
-			color: white;
-		}
-
-		.stations-container {
-			display: grid;
-			grid-template-columns: auto auto;
-			width: 350px;
-			height: 15px;
-			position: relative;
-			margin: 0 auto;
-		}
-
-		.station {
-			text-align: center;
-			min-height: 40px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
 		integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
@@ -164,6 +19,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"
 		integrity="sha512-0bEtK0USNd96MnO4XhH8jhv3nyRF0eK87pJke6pkYf3cM0uDIhNJy9ltuzqgypoIFXw3JSuiy04tVk4AjpZdZw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript" src="stations.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
@@ -189,104 +46,8 @@
 		</div>
 
 		<div class="stations-container" class="no-bullets">
-			</ul>
+		</div>
 
 </body>
-
-
-<script type="text/javascript">
-	async function RunCommand(event, command) {
-		var url = "http://192.168.1.77/httpapi.asp?command=" + (command ?? event.getAttribute('data-command'))
-		return await fetch(url, {
-			method: 'GET'
-		})
-	}
-	async function main() {
-		try {
-			var response = await RunCommand(null, 'getPlayerStatus')
-			var status = await response.json()
-		} catch {
-			var status = { vol: 20 }
-		}
-
-		$("#volumeBar").slider({
-			min: 0,
-			max: 100,
-			value: status.vol,
-			range: "min",
-			slide: function (event, ui) {
-				RunCommand(event, "setPlayerCmd:vol:" + ui.value)
-			}
-		})
-
-		var stations = [
-			{
-				"Title": "BBC Radio 1",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one.m3u8"
-			},
-			{
-				"Title": "BBC Radio 1Xtra",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_1xtra.m3u8"
-			},
-			{
-				"Title": "BBC Radio 1Dance",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one_dance.m3u8"
-			},
-			{
-				"Title": "BBC Radio 1Relax",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_one_relax.m3u8"
-			},
-			{
-				"Title": "BBC Radio 2",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_two.m3u8"
-			},
-			{
-				"Title": "BBC Radio 3",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_three.m3u8"
-			},
-			{
-				"Title": "BBC Radio 4",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_fourfm.m3u8"
-			},
-			{
-				"Title": "BBC Radio 4 LW",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_fourlw.m3u8"
-			},
-			{
-				"Title": "BBC Radio 4 Extra",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_four_extra.m3u8"
-			},
-			{
-				"Title": "BBC Radio 5 live",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_five_live.m3u8"
-			},
-			{
-				"Title": "BBC Radio 6 Music",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8"
-			},
-			{
-				"Title": "BBC Radio 5 Live sports extra",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_five_live_sports_extra.m3u8"
-			},
-			{
-				"Title": "BBC Radio Scotland FM",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_scotland_fm.m3u8"
-			},
-			{
-				"Title": "BBC Radio Scotland MW",
-				"Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_scotland_mw.m3u8"
-			}
-		]
-
-		var listItems = []
-
-		$(stations).each(function (i, item) {
-			listItems.push('<div class="station button buttonGreen" onclick="RunCommand(this)" data-command="setPlayerCmd:m3u:play:' + item.Url + '">' + item.Title + '</div>')
-		})
-
-		$('.stations-container').append(listItems.join(''))
-	}
-	main()
-</script>
 
 </html>

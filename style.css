@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
+
+body {
+    background: #2a2a2a;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 34px;
+    color: #fff;
+}
+
+p {
+    color: #999;
+    text-align: center;
+    font-size: 15px;
+}
+
+p a {
+    color: #2ecc71;
+    text-decoration: none;
+    padding: 1px 2px 0px 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, .0);
+    transition: all 0.1s ease;
+}
+
+i.clickable {
+    cursor: pointer;
+    line-height: 1em;
+}
+
+p a:hover {
+    padding: 1px 2px 1px 2px;
+    border-bottom: 2px solid #555;
+}
+
+#volumeControl {
+    width: 250px;
+    height: 15px;
+    position: relative;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+#volumeControl i {
+    position: absolute;
+    margin-top: 3px;
+}
+
+#volumeControl i.fa-volume-down {
+    margin-left: -5px;
+}
+
+#volumeControl i.fa-volume-up {
+    margin-right: -10px;
+    right: 0;
+}
+
+#volumeBar {
+    position: absolute;
+    left: 24px;
+    margin: 0 auto;
+    height: 10px;
+    width: 200px;
+    background: #555;
+    border-radius: 15px;
+}
+
+#volumeBar .ui-slider-range-min {
+    height: 10px;
+    width: 300px;
+    position: absolute;
+    background: #2ecc71;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+#volumeBar .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #fff;
+    position: absolute;
+    margin-left: -5px;
+    margin-top: -5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.controls {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+    padding-bottom: 25px;
+}
+
+.sources {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    padding-bottom: 20px;
+}
+
+i {
+    color: #666;
+}
+
+.button {
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonGreen {
+    background-color: #666;
+    color: white;
+    border: 2px solid #2ecc71;
+}
+
+.buttonGreen:hover {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.stations-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 350px;
+    height: 15px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.station {
+    text-align: center;
+    min-height: 40px;
+    user-select: none;
+}
