@@ -54,5 +54,9 @@ var stations = [
     {
         "Title": "BBC Radio Scotland MW",
         "Url": "http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_scotland_mw.m3u8"
+    },
+    {
+        "Title": "Clyde 1",
+        "Url": "http://www.radiofeeds.co.uk/bauerflash.pls?station=clyde1.mp3.m3u"
     }
 ]
