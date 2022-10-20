@@ -58,5 +58,9 @@ var stations = [
     {
         "Title": "Clyde 1",
         "Url": "http://www.radiofeeds.net/playlists/bauerflash.pls?station=clyde1-mp3"
+    },
+    {
+        "Title": "LBC",
+        "Url": "http://icecast.thisisdax.com/LBCLondonMP3.m3u"
     }
 ]
