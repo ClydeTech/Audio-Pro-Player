@@ -25,7 +25,7 @@ async function main() {
     var listItems = []
 
     $(stations).each(function (i, item) {
-        listItems.push('<div class="station button buttonGreen" onclick="RunCommand(this)" data-command="setPlayerCmd:m3u:play:' + item.Url + '">' + item.Title + '</div>')
+        listItems.push('<div class="station button buttonGreen" onclick="RunCommand(this)" data-command="setPlayerCmd:play:' + item.Url + '">' + item.Title + '</div>')
     })
 
     $('.stations-container').append(listItems.join(''))
