@@ -1,6 +1,7 @@
 async function RunCommand(event, command) {
     var url = "http://192.168.0.28/httpapi.asp?command=" + (command ?? event.getAttribute('data-command'))
     return await fetch(url, {
+        mode:'no-cors',
         method: 'GET'
     })
 }
